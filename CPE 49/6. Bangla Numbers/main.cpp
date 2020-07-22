@@ -1,12 +1,13 @@
 #include <iostream>
-#include <iomanip>
+#include <iomanip>	// getw()
 #include <string>
 
 using namespace std;
 
-void bangla_numbers(long long n) {
+/* »¼°j */
+void bangla_numbers(long long n) {	
 	if (n / 10000000) {
-		bangla_numbers(n / 10000000);	
+		bangla_numbers(n / 10000000);
 		cout << " kuti ";
 		n %= 10000000;
 	}
