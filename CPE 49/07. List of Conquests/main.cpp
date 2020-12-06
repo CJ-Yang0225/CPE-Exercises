@@ -1,40 +1,33 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int main() {
-	int n;
-	
-	cin >> n;
-	
-	string countries[n];
-	string name;
-	
-	
-	for (int i = 0; i < n; i++) {
-		cin >> countries[i];
-		getline(cin, name);
-	}
-	
-	sort(countries, countries + n);    // ±N¬Û¦P°ê®a³sÄò±Æ©ñ
-	
-	int j = 0;
-	
-	for (int i = 0; i < n; i = j) {
-		cout << countries[i] << " ";    // ¦L¥X¥Ø«eªº°ê®a¦W
-		
-		int count = 0;
-		
-		for (j = i; j < n; j++) {
-			if (countries[i] != countries[j]) break;	// ­Y°ê®a¤£¦P¡A¸õ¥X¨Ã´«¨ì¤U¤@­Ó°ê®a(²Ä¤@­Ó°j°éªº i = j) 
-			
-			count++;
-		}
-				
-		cout << count << endl;
-	}
+  int input, count;
+  
+  cin >> input;
+  cin.ignore(); // éæ¿¾è¼¸å…¥Enterå•é¡Œ
+  
+  string countries[input], name;
 
-	return 0;
+  for (int i = 0; i < input; i++) {  	
+    cin >> countries[i];
+    getline(cin, name);    
+  }
+  
+  sort(countries, countries + input); // å°‡ç›¸åŒåœ‹å®¶é€£çºŒæ’æ”¾
+  
+  int j;
+  for (int i = 0; i < input; i = j) {
+    cout << countries[i] << " "; // å°å‡ºç›®å‰çš„åœ‹å®¶å
+    count = 0;    
+    for (j = i; j < input; j++) {
+      // è‹¥åœ‹å®¶ä¸åŒï¼Œè·³å‡ºä¸¦æ›åˆ°ä¸‹ä¸€å€‹åœ‹å®¶(ç¬¬ä¸€å€‹è¿´åœˆçš„ i = j)
+      if (countries[i] != countries[j]) break;
+      count++;
+    }
+    cout << count << endl;
+  }
+  
+  return 0;
 }
