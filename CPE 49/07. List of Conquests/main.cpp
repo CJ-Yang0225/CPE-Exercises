@@ -31,3 +31,22 @@ int main() {
   
   return 0;
 }
+
+int main() {
+  map<string, int> countries;
+  int n;
+  cin >> n;
+  cin.ignore();
+  
+  while (n--) {
+    string name, others;
+    cin >> name;
+    countries[name]++;
+    getline(cin, others);
+  }
+  
+  // 遍歷 Map 裡的 Key & Value
+  for (auto iter = countries.begin(); iter != countries.end(); iter++) {
+    cout << iter -> first << " " << iter -> second << endl;
+  }
+}
