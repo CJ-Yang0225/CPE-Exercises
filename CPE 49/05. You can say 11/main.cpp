@@ -20,20 +20,19 @@ int main() {
   return 0;
 }
 
-// int main(){
-//   string a;
-//   while(cin >> a && a != "0"){
-//     long long sum[2] = {0,0};       //初始化
-//     for(int i = 0; i < a.length(); i++){
-//       sum[i % 2] = sum[i % 2] + a[i] - 48;  //會分為"sum[0](整除)"或"sum[1](餘1)"
-//                                     //字串'0'的數值為48，所以必須扣除掉，或是直接 -'0'
-//     }
+int main(){
+  string a;
+  while(cin >> a && a != "0") {
+    long long sum[2] = {0,0}; //初始化
 
-//     if((sum[0] - sum[1]) % 11)
-//       cout << a << " is not a multiple of 11." << endl;
-//     else
-//       cout << a << " is a multiple of 11." << endl;
-      
-//   }
-//   return 0;
-// }
+    for(int i = 0; i < a.length(); i++) {
+      // 會分為"sum[0](整除)"或"sum[1](餘1)"
+      sum[i % 2] = sum[i % 2] + a[i] - 48; //字串'0'的數值為48，所以必須扣除掉，或是直接 -'0'
+    }
+    if((sum[0] - sum[1]) % 11)
+      cout << a << " is not a multiple of 11." << endl;
+    else
+      cout << a << " is a multiple of 11." << endl;      
+  }
+  return 0;
+}
