@@ -6,34 +6,72 @@
 using namespace std;
 
 int main() {
-	int n;	
-	int count[26] = {0};	// ªì©l¤Æ ¡A²MªÅ¤º®e 
-	string input;
-	
-	cin >> n;
-	cin.ignore();	// ©¿²¤½w½Ä°Ïªº¸ê®Æ(¨S¥[®É¡AinputÅª¨ú·|°ÝÃD ) 
-	
-	while (n--) {
-		getline(cin, input);
-		
-		for (int i = 0; i < input.size(); i++) {
-			if (isalpha(input[i]))
-				count[toupper(input[i]) - 'A']++;	// input[i] ­Y¬°¦r¥À¡A«hÂà¬°¤j¼g¡A¨Ã±N¦r¥À¹ïÀ³¦ì¸mªº­È + 1 
-		}
-	}
-	
-	int maxCount = 0;
-	
-	for (int i = 0; i < 26; i++) {
-		if (count[i] > maxCount) maxCount = count[i];
-	}
-	
-	for (int i = maxCount; i > 0; i--) {		
-		for (int j = 0; j < 26; j++) {
-			if (count[j] == i) 
-				cout << char(j + 'A') << " " << count[j] << endl;	// ¦¸¼Æ¥Ñ¤j¨ì¤p¡A¨Ì§ÇÅã¥Ü¹ïÀ³ªº¦r¥À©M¦¸¼Æ 
-		}		
-	}
+  int n;  
+  int count[26] = {0};
+  string input;
+  
+  cin >> n;
+  cin.ignore(256, '\n');
+  
+  while (n--) {
+    getline(cin, input);
+    
+    for (int i = 0; i < input.size(); i++) {
+      if (isalpha(input[i]))
+        count[toupper(input[i]) - 'A']++;
+    }
+  }
+  
+  int maxCount = 0;
+  
+  for (int i = 0; i < 26; i++) {
+    if (count[i] > maxCount) maxCount = count[i];
+  }
+  
+  for (int i = maxCount; i > 0; i--) {
+    for (int j = 0; j < 26; j++) {
+      if (count[j] == i) 
+        cout << char(j + 'A') << " " << count[j] << endl;
+    }
+  }
 
-	return 0;
+  return 0;
 }
+
+/* åˆ©ç”¨ Map ç¡¬å¯« (å› ç‚º Map è²Œä¼¼ç„¡æ³•ç›´æŽ¥å° value åšæŽ’åºï¼Œæ‰€ä»¥é€éŽ Vector å¯¦ç¾) */
+// #include <bits/stdc++.h>
+
+// using namespace std;
+
+// typedef pair<char, int> MyPair;
+
+// bool my_compare(const MyPair &p1, const MyPair &p2){
+//   return p1.second > p2.second ? true : p1.second == p2.second ? p1.first < p2.first : false;
+// }
+
+// int main() {
+//   map<char, int> alphabets;
+//   vector<MyPair> vec;
+//   int n;
+//   string str;
+  
+//   cin >> n;
+//   cin.ignore(1000, '\n');
+//   while (n--) {    
+//     getline(cin, str);    
+//     for (int i = 0; i < str.size(); i++) {      
+//       if (isalpha(str[i])) alphabets[toupper(str[i])]++;      
+//     }
+//   }
+//   for (auto iter = alphabets.begin(); iter != alphabets.end(); iter++) {
+//     vec.push_back(make_pair(iter -> first, iter -> second));
+//   }
+  
+//   sort(vec.begin(), vec.end(), my_compare);
+  
+//   for (auto iter = vec.begin(); iter != vec.end(); iter++) {
+//     cout << iter -> first << " " << iter -> second << endl; 
+//   }
+
+//   return 0;
+// }
