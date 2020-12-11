@@ -1,35 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cctype>
-
-using namespace std;
-
-int main() {
-  string contrastData = " `1234567890-=qwertyuiop[]asdfghjkl;'zxcvbnm,./";
-  string input;
-  
-  while (getline(cin, input)) {
-    for (int i = 0; i < input.size(); i++) {
-      if (isalpha(input[i])) input[i] = tolower(input[i]);
-      // 輸入資料的 index 在 2 之前可能會出錯
-      for (int j = 0; j < contrastData.size(); j++) {
-        if (input[i] == contrastData[0]) {
-          cout << " ";
-          break;
-        } else if (input[i] == contrastData[j]) {
-          cout << contrastData[j - 2];
-          break;
-        }
-      }
-    }
-    
-    cout << endl;
-  }
-
-  
-  return 0;
-}
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -58,3 +26,29 @@ int main() {
   
   return 0;
 }
+
+
+// int main() {
+//   string contrastData = "`1234567890-=qwertyuiop[]asdfghjkl;'zxcvbnm,./";
+//   string input;
+  
+//   while (getline(cin, input)) {
+//     for (int i = 0; i < input.size(); i++) {
+//       if (isalpha(input[i])) input[i] = tolower(input[i]);
+//       // j = 2 確保不會 index out of bounds
+//       for (int j = 2; j < contrastData.size(); j++) {
+//         if (input[i] == ' ') {
+//           cout << ' ';
+//           break;
+//         } else if (input[i] == contrastData[j]) {
+//           cout << contrastData[j - 2];
+//           break;
+//         }
+//       }
+//     }
+    
+//     cout << endl;
+//   }
+  
+//   return 0;
+// }
