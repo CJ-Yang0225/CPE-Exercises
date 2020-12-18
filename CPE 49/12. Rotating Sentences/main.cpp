@@ -32,30 +32,30 @@ int main() {
 }
 
 /* Character Array 測試 */
-int main() {
-  char sentences[100][101] = {""};
-  int rowLength = 0, colLength = 0;
+// int main() {
+//   char sentences[100][101] = {""};
+//   int rowLength = 0, colLength = 0;
   
-  while (cin.getline(sentences[rowLength], 101)) {
-    colLength = max(colLength, (int)strlen(sentences[rowLength]));    
-    rowLength++;
-  }
+//   while (cin.getline(sentences[rowLength], 101)) {
+//     colLength = max(colLength, (int)strlen(sentences[rowLength]));    
+//     rowLength++;
+//   }
   
-  for (int i = 0; i < colLength; i++) {
-    int spaces = 0;
-    for (int j = rowLength - 1; j >= 0; j--) {
-      if (i >= strlen(sentences[j])) {
-        spaces++;
-      } else {
-        while (spaces) {
-          cout << ' ';
-          spaces--;
-        }
-        cout << sentences[j][i];
-      }      
-    }
-    cout << endl;
-  }
+//   for (int i = 0; i < colLength; i++) {
+//     int spaces = 0;
+//     for (int j = rowLength - 1; j >= 0; j--) {
+//       if (i >= strlen(sentences[j])) {
+//         spaces++;
+//       } else {
+//         while (spaces) {
+//           cout << ' ';
+//           spaces--;
+//         }
+//         cout << sentences[j][i];
+//       }      
+//     }
+//     cout << endl;
+//   }
   
-  return 0;
-}
+//   return 0;
+// }
