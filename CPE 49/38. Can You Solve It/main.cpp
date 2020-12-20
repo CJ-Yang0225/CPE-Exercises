@@ -10,7 +10,7 @@ int main() {
   int n, x1, y1, x2, y2, count = 0;
   
   cin >> n;  
-  while (n--) {    
+  while (n--) {
     cout << "Case " << ++count << ": ";
     cin >> x1 >> y1 >> x2 >> y2;
     cout << loc(x2, y2) - loc(x1, y1) << endl;
