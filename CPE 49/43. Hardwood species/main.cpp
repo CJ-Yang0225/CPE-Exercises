@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-  int T, count, sum, Case = 0;
+  int T, sum, Case = 0;
   string name;
   map<string, int, less<string>> species;  // 第三個參數為 Map 中 Key 排序的根據 (預設 less，可換 greater)
   
